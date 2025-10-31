@@ -44,15 +44,15 @@ try:
 except TypeError:
     print("Ошибка! Нельзя изменять символ строки!")
 
-#Задание 3
+# Задание 3
 
-# try:
-#     num1 = input("Введите первое число: ")
-#     num1 = int(num1)
-#     num2 = int(input("Введите второе число: "))
-#     print(num1 + num2)
-# except ValueError:
-#     print("Ошибка! Введено некорректное значение!")
+try:
+    num1 = input("Введите первое число: ")
+    num1 = int(num1)
+    num2 = int(input("Введите второе число: "))
+    print(num1 + num2)
+except ValueError:
+    print("Ошибка! Введено некорректное значение!")
 
 #Задание 5
 
@@ -67,8 +67,8 @@ print(unique_items)
 
 # 1. Сбор данных от пользователя
 name = input("Ваше имя: ")
-age = int(input())
-subject_str = input("введите ваши любимые предметы через запятую")
+age = int(input("Ввш возрвст: "))
+subject_str = input("введите ваши любимые предметы через запятую: ")
 
 # 2. Преобразование subject_str в subject_list
 subject_list = [subject_str.strip() for subject_str in subject_str.split(",")]
@@ -84,4 +84,6 @@ student = {
 print("="*40)
 print("АНКЕТА СТУДЕНТА")
 print("="*40)
-print(f"Имя")
+print(f"Имя: {student["Имя"]} \nВозраст: {student["Возраст"]}"
+      f"\nЛюбимые предметы: {student["Список любимых предметов"]}")
+print("="*40)
