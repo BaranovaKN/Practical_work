@@ -2,7 +2,7 @@
 # Задание 1
 
 def calculating_rating_information(rating):
-    '''
+    """
     Берет значение рейтинга и находит информацию о нем
 
     Args:
@@ -10,7 +10,7 @@ def calculating_rating_information(rating):
 
     Returns:
         str: описание, эмодзи, рейтинг
-    '''
+    """
 
     match product_rating:
         case 10 | 9:
@@ -43,7 +43,7 @@ else:
 # Задание 2
 
 def checking_order_status(order_status):
-    '''
+    """
         Берет значение о статусе заказа и находит информацию о нем
 
         Args:
@@ -51,7 +51,7 @@ def checking_order_status(order_status):
 
         Returns:
             str: эмодзи, описание, Оставшееся время доставки, рейтинг
-        '''
+    """
 
     match order_status:
         case "В ожидании":
