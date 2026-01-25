@@ -8,7 +8,6 @@ while(True):
         user_mark = int(input("Пожалуйста введите оценку от 1 до 5: "))
     except ValueError:
         print("Ошибка! Введено некорректное значение!")
-        break
     else:
         MIN_MARK = 1
         MAX_MARK = 5
