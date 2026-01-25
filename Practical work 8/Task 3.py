@@ -14,4 +14,4 @@ else:
             res += i
 
     res+=math.pow(-1, n+1)*n
-    print(res)
+    print(f"{res:.0f}")
