@@ -1,7 +1,6 @@
 
 print("Строго возрастающая последовательность")
 
-user_nums = [None, None, None]
 user_num1 = None
 user_num2 = None
 user_num3 = None
@@ -26,3 +25,4 @@ while True:
             break
         print(f"Ошибка! {i} число больше или равно {i-1}")
 print(f"Ваша возрастающая последовательность {user_num1}, {user_num2}, {user_num3}")
+
