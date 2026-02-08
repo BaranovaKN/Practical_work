@@ -4,7 +4,7 @@ CORRECT_PIN_CODE = 4590
 
 while True:
     try:
-        user_pin_code = int(input("введите вакш пин-код: "))
+        user_pin_code = int(input("Введите ваш пин-код: "))
     except ValueError:
         print("Ошибка! Введены некорректные данные!")
     else:
