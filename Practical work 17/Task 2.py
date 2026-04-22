@@ -8,6 +8,14 @@ def is_prime(user_num):
             return False
     return True
 
-print(is_prime(1))
-print(is_prime(10))
-print(is_prime(17))
+while True:
+    try:
+        user_num = int(input('Введите число для проверки: '))
+    except ValueError:
+        print('ОШИБКА! ВВЕДЕНО НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ!')
+    else:
+        if user_num > 0:
+            break
+        print('Число должно быть положительным!')
+
+print(f'Ваше число простое?: {is_prime(user_num)}')
