@@ -8,6 +8,16 @@ def solve(a, b, c):
     else:
         return (-b-d)/(2*a), (-b+d)/(2*a)
 
-print(*solve(1,-4,-5))
-print(*solve(-2,7,-5))
-print(*solve(1,2,1))
+while True:
+    try:
+        user_a, user_b, user_c = map(int, input('Введите ваши коэффициенты для квадратного '
+                                                'уравнения через запятую по порядку: ').split(', '))
+    except ValueError:
+        print('Ошибка!Введены некорректные значения!')
+    else:
+        if (math.pow(user_b,2) - 4*user_a*user_c) < 0:
+            print('Ошибка в вашем квадратном уравнении нет корней!')
+        else:
+            break
+
+print('Корни вашего квадратного уравнения:', *solve(user_a,user_b,user_c))

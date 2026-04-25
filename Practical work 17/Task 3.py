@@ -8,15 +8,19 @@ def is_prime(user_num):
             return False
     return True
 
-print(is_prime(1))
-print(is_prime(10))
-print(is_prime(17))
-
 def get_next_prime(user_num):
+    user_num +=1
     if not is_prime(user_num):
         while not is_prime(user_num):
             user_num += 1
     return user_num
 
-print(get_next_prime(1))
-print(get_next_prime(10))
+while True:
+    try:
+        user_num = int(input('Введите число для нахождения следующего простого числа после вашего: '))
+    except ValueError:
+        print('ОШИБКА! ВВЕДЕНО НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ!')
+    else:
+        break
+
+print(f'Следующее простое число после вашего: {get_next_prime(user_num)}')

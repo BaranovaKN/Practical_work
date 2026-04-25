@@ -4,5 +4,5 @@ def is_password_good(password):
     else:
         return False
 
-print(is_password_good('aabbCC11OP'))
-print(is_password_good('abC1pu'))
+user_password = input('Введите пароль для проверки: ')
+print(f'Надежен ли ваш пароль?: {is_password_good(user_password)}')

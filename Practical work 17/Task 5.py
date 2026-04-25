@@ -1,14 +1,14 @@
 import math
 
-def is_prime(user_num):
-    if user_num < 2:
-        return False
-    for i in range(2, int(math.sqrt(user_num)) + 1):
-        if user_num % i == 0:
-            return False
-    return True
-
 def is_valid_password(user_password):
+    def is_prime(user_num):
+        if user_num < 2:
+            return False
+        for i in range(2, int(math.sqrt(user_num)) + 1):
+            if user_num % i == 0:
+                return False
+        return True
+
     parts_password = user_password.split(':')
     if len(parts_password) != 3:
         return False
@@ -28,7 +28,5 @@ def is_valid_password(user_password):
 
     return True
 
-print(is_valid_password('1221:101:22'))
-print(is_valid_password('565:30:50'))
-print(is_valid_password('112:7:9'))
-print(is_valid_password('1221:101:22:22'))
+user_password = input('Введите ваш пароль: ')
+print(f'Подходит ли ваш пароль: {is_valid_password(user_password)}')
