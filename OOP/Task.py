@@ -17,7 +17,7 @@ class Monster:
 
     def set_name(self, name):
         self.__name = name
-        print(f'Установлдено имя: {self.__name}')
+        print(f'Установлено имя: {self.__name}')
 
     def set_hp(self, hp):
         if hp < 0:
@@ -56,6 +56,9 @@ class Monster:
     def attack(self, hunter):
         print(f'{self.get_name()} атакует!\n')
         hunter.take_damage(self.get_dmg())
+
+    def show_info(self):
+        print(f'Имя: {self.get_name()}\nЗдоровье: {self.get_hp()}\nУрон: {self.get_dmg()}')
 
 
 class Zombie(Monster):
@@ -155,7 +158,7 @@ class HolyWater(Weapon):
         super().__init__(name = 'Святая вода', dmg = 20)
 
     def use(self, monster):
-        print(f'{self.name} жгет {monster.get_name()}!\n')
+        print(f'{self.name} прожигает {monster.get_name()}!\n')
         monster.take_damage(self.dmg)
 
 
@@ -180,9 +183,12 @@ class Hunter:
     def get_hp(self):
         return self.__hp
 
+    def get_len_inventory(self):
+        return len(self.__inventory)
+
     def set_name(self, name):
         self.__name = name
-        print(f'Установлдено имя: {self.__name}')
+        print(f'Установлено имя: {self.__name}')
 
     def set_hp(self, hp):
         if hp < 0:
@@ -206,7 +212,7 @@ class Hunter:
 
 
     def attack(self, weapon_index, monster):
-        print(f'\n{self.get_name()} аттакует!')
+        print(f'\n{self.get_name()} атакует!')
         self.__inventory[weapon_index-1].use(monster)
 
     def is_alive(self):
@@ -236,12 +242,19 @@ def run_games():
     h.add_weapon(HolyWater())
     h.add_weapon(Weapon('Читерский меч',100))
     monsters = [Zombie('Зомби'), Vampire('Дракула'), Ghost('Лизун'), Werewolf('Люкан')]
-
     i = 0
     round_num = 1
+
+    print(f'\n\n{'-' * 30}\n{' ' * 5}Игра зачистка замка\n{'-' * 30} \n')
+    print('\nЗачистите замок от монстров!\n')
+
     while i < len(monsters) and h.is_alive():
+        print(f'{h.get_name()} Встречает {monsters[i].get_name()}!')
+        print('Характеристика противника:\n')
+        monsters[i].show_info()
+        print('\n')
         while monsters[i].is_alive() and h.is_alive():
-            print('-'*30, f'\nРаунд {round_num}\n', '-'*30)
+            print(f'{'-' * 30}\n{' '*11}Раунд {round_num}\n{'-'*30} \n')
             round_num += 1
             h.show_status()
             try:
@@ -251,8 +264,8 @@ def run_games():
                 print('Ошибка! Введены некорректные данные!')
 
             else:
-                if not 0 < user_weapon <= len(monsters):
-                    print(f'Ошибка выдолжны выбрать номер оружия от 1 до {len(monsters)}!')
+                if not 0 < user_weapon <= h.get_len_inventory():
+                    print(f'Ошибка вы должны выбрать номер оружия от 1 до {h.get_len_inventory()}!')
                     continue
 
             h.attack(user_weapon, monsters[i])
