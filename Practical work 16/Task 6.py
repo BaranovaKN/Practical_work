@@ -1,0 +1,5 @@
+department_1 = set(map(int, input('Введите id сотрудников, которые появились сегодня в 1 отделе: ').split()))
+department_2 = set(map(int, input('Введите id сотрудников, которые появились сегодня в 2 отделе: ').split()))
+department_3 = set(map(int, input('Введите id сотрудников, которые появились сегодня в 3 отделе: ').split()))
+all_ids = set(range(11))
+print('Список отсутствующих сотрудников:',*all_ids.difference(department_1 | department_2 | department_3))
